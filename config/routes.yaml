@@ -1,0 +1,193 @@
+index:
+   path: /
+   controller: App\Controller\DefaultController::index
+
+worlds:
+    type: rest
+    resource: App\Controller\WorldsController
+
+users:
+    type: rest
+    resource: App\Controller\UsersController
+
+themes:
+    type: rest
+    resource: App\Controller\ThemesController
+
+questions:
+    type: rest
+    resource: App\Controller\QuestionsController
+
+answers:
+    type: rest
+    resource: App\Controller\AnswersController
+
+tokens:
+    type: rest
+    resource: App\Controller\TokensController
+
+avatars:
+    type: rest
+    resource: App\Controller\AvatarsController
+
+goodtoknows:
+    type: rest
+    resource: App\Controller\GoodToKnowsController
+
+gameTypes:
+    type: rest
+    resource: App\Controller\GameTypesController
+
+memoryCards:
+    type: rest
+    resource: App\Controller\MemoryCardsController
+
+challenges:
+    type: rest
+    resource: App\Controller\ChallengesController
+
+puzzleGame:
+    type: rest
+    resource: App\Controller\PuzzleGameController
+
+questions_answers_post:
+    path: /questions/{question}/answers
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\QuestionsController:postQuestionAnswersAction
+        _format: json
+
+
+world_post:
+    path: /worlds
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\WorldsController:postWorldsAction
+        _format: json
+
+questions_patch:
+    path: /questions/{question}
+    methods: [PATCH]
+    defaults:
+        _controller: App\Controller\QuestionsController:patchQuestionsAction
+        _format: json
+
+image_world_upload_put:
+    path: /worlds/{world}/{image}/upload
+    methods: [PUT]
+    defaults:
+        _controller: App\Controller\WorldsController::putImageUploadAction
+        _format: json
+
+challenges_patch:
+    path: /challenges/{challenge}
+    methods: [PATCH]
+    defaults:
+        _controller: App\Controller\ChallengesController:patchChallengesAction
+        _format: json
+
+challenges_questions_post:
+    path: /challenges/{challenge}/questions
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\ChallengesController:postChallengeQuestionsAction
+        _format: json
+
+themes_questions_post:
+    path: /themes/{theme}/questions
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\ThemesController:postThemeQuestionsAction
+        _format: json
+
+
+image_question_upload_post:
+    path: /questions/{question}/upload
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\QuestionsController::postImageQuestionUploadAction
+        _format: json
+
+image_challenge_upload_post:
+    path: /challenges/{challenge}/upload
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\ChallengesController::postImageChallengeUploadAction
+        _format: json
+
+users_post:
+    path: /users
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\UsersController:postUserAction
+        _format: json
+
+users_patch:
+    path: /users/{theUser}
+    methods: [PATCH]
+    defaults:
+        _controller: App\Controller\UsersController:patchUserAction
+        _format: json
+
+users_complete_world:
+    path: /users/{user}/complete/worlds/{world}
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\UsersController:postUserCompleteWorldAction
+        _format: json
+     
+users_bonus_investments:
+    path: /users/{user}/bonus_investisments
+    methods: [GET]
+    defaults:
+        _controller: App\Controller\UsersController:getUsersBonusInvestismentsAction
+        _format: json
+
+users_unlock_investment:
+    path: /unlock_investement/{user}
+    methods: [GET]
+    defaults:
+        _controller: App\Controller\UsersController:getUsersRandBonusInvestmentAction
+        _format: json
+
+users_worlds_scores:
+    path: /users/{user}/worlds_scores
+    methods: [GET]
+    defaults:
+        _controller: App\Controller\UsersController:getUsersWorldsScoresAction
+        _format: json
+
+users_reset_game:
+    path: /user_reset_game/{userId}
+    methods: [GET]
+    defaults:
+        _controller: App\Controller\UsersController:resetGameAction
+        _format: json
+
+themes_puzzle:
+    path: /themes/{theme}/puzzle
+    methods: [GET]
+    defaults:
+        _controller: App\Controller\ThemesController:getThemePuzzleAction
+        _format: json
+
+themes_patch:
+    path: /themes/{theme}
+    methods: [PATCH]
+    defaults:
+        _controller: App\Controller\ThemesController:patchThemesAction
+        _format: json
+
+theme_draw_patch:
+    path: /themedraw/{themedraw}
+    methods: [PATCH]
+    defaults:
+        _controller: App\Controller\ThemesController:patchThemeDrawAction
+        _format: json
+
+theme_game_type_patch:
+    path: /themes/{theme}/game_type
+    methods: [POST]
+    defaults:
+        _controller: App\Controller\ThemesController:patchThemeGameTypeAction
+        _format: json
